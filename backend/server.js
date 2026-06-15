@@ -5,7 +5,8 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'frontend')));
 // O Coolify injeta a variável DATABASE_URL automaticamente se conectarmos os recursos
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL
